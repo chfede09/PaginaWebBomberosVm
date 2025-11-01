@@ -1,104 +1,54 @@
-* {
-    box-sizing: border-box;
+:root{
+  --background: #437cd8;
+  --card: #f5eded;
+  --primary: #d10c0c;   
+  --accent: #d2e827;    
+  --muted: #0f3f7d;
+  --text: rgb(20, 133, 82);
+  --radius: 20px;
+  --container-width: 1100px;
 }
 
-h1 {font-size: 3em;}
-h2 {font-size: 3em;}
-h3 {font-size: 2em;}
-p  {font-size: 1.25em;}
-ul {list-style: none;}
-li {font-size: 1em;}
+*{ box-sizing: border-box; }
+html,body { height:0; 
+            margin: auto; 
+            font-family: 'Inter', system-ui, Arial, sans-serif; 
+            background: var(--bg); 
+            color: var(--text); 
+            line-height:1,6; }
 
-body{
-
-font-family: 'Roboto' sans-serif;
-margin: 0;
-}
-
-button{ font-size: 1.5em;
-font-weight: bolder;
-padding: 5px 20px;
-border-radius:30px;
-border: 1px solid 0, 0, 0, 0.5;
-box-shadow: 2px 2px 10px 0px rgba(0,0,0,10);
-color: rgb(240, 64, 226);
-background-color:rgb(43, 226, 86)
-}
-button:hover{
-    background-color: rgb(176, 182, 166);
-    cursor: pointer;
-}
-
-
-.container{
-    max-width: 1400px;
+.container {
+    max-width: var(--container-width);
     margin: auto;
-    overflow: hidden;
-  }
-  .color-acento{color: rgb(189, 23, 214);}
-
-
-  
-
-    header{
-        background-color: rgb(245, 245, 245);
-        
-    }
-    header .logo{
-        text-align: center;
-        margin: 0%;
-        padding: 20px 40px ;
-        font-weight: bold ;
-        color: rgb(19, 126, 208);
-        font-size: 3em;
+    padding: 16px;
     }
 
-    header .container{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-     }
-    header nav{
-        display: flex;
-        flex-direction: column;
-        text-align: center;
-        padding: 30px;
-        font-size: 3em;
-    
-    }
-    header a{
-        padding:20px 20px;
-        text-decoration: none;
-        font-weight: bold;
-        color: rgb(15, 15, 16)
-    }
-
-     header a:hover{
-      color: blueviolet;
-} 
-#hero{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    flex-direction: column;
-    height: 90vh;
-    background-image: linear-gradient(
-        0deg,
-        rgba(0,0,0,0.15),
-        rgba(0,0,0,0.15)),
-url("Imagenes/R.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
+.site-header{
+  background: linear-gradient(400deg,var(--primary),var(--accent));
+  color: rgb(227, 231, 233);
+  padding: 12px 0;
+  margin-bottom: 18px;
 }
-#hero h1{
-    color: rgb(71, 34, 193);
+.hider-inner{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap: 16px;
+}
+.site-title {
+    margin: 0px; 
+    font-weight: 700;
+    font-size: 1.25rem;
+   }
+.main- nav{
+  display: flex;
+  gap: 12px;
 
 }
-
-#bomberos-fortin.container{
-    text-align: center;
-    padding: 200px 12px;
+.main-nav a{
+  color: rgb(227, 231, 233);
+  text-decoration:none;
+  padding:8px 12px;
+  border-radius:8px;
+  font-weight:600;
 }
-  
