@@ -1,10 +1,10 @@
 :root{
-  --background: rgb(67, 124, 216);
+  --background: rgb(27, 62, 118);
   --card: rgb(245, 237, 237);
-  --primary: rgb(209, 12, 12);   
-  --accent: rgb(210, 232, 39);    
-  --muted: rgb(15, 63, 125);
-  --text: rgb(234, 234, 234);
+  --primary: rgb(138, 11, 11);   
+  --accent: rgb(13, 13, 13);    
+  --muted: rgb(23, 44, 70);
+  --text: rgb(0, 0, 0);
   --radius: 20px;
   --container-width: 1100px;
 }
