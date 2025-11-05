@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nuestra Fprmacion</title>
+    <link rel="stylesheet" href="stilo.css">
 </head>
 <body>
     <header class="site-header">
@@ -16,37 +17,49 @@
 </nav>
 </div>
     </header>
+
     <main class="container articulo-page">
         <h2>Contacto</h2>
         <p>Completa el formulario y nos comunicaremos.</p>
+
         <form id="contactForm" novalidate>
-      <div class="form-row">
+
+        <div class="form-row">
         <label for="name">Nombre y apellido *</label>
         <input type="text" id="name" name="name" maxlength="60" required>
         </div>
+
         <div class="form-row">
         <label for="email">Email *</label>
         <input type="email" id="email" name="email" maxlength="80" required>
         </div>
+
         <div class="form-row">
         <label for="phone">Teléfono *</label>
         <input type="tel" id="phone" name="phone" maxlength="20" required>
         </div>
+
         <div class="form-row">
         <label for="message">Mensaje</label>
         <textarea id="message" name="message" maxlength="500" rows="5"></textarea>
         </div>
+
         <div id="formErrors" class="form-errors" aria-live="polite"></div>
-        <button type="submit" class="btn">Enviar</button>   
-    </form>
-    <section id="submittedData" class="submitted-data" aria-live="polite"></section>
+        <button type="submit" class="btn">Enviar</button>  
+      </form>
+
+    <section id="submittedData" class="submitted-data" aria-live="polite">
+
+    </section>
     </main>
+     
     <footer class="site-footer">
         <div class="container">
           <p>© 2025 Mi Sitio — Hecho por Fede y Emi</p>
         </div>
       </footer>
-      
+      <script src="main.js"></script>
+
 </body>
 </html>
 
