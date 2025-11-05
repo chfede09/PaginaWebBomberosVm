@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="Stilo.css">
     <script src="scrip.js"></script>
     <script src="scrip.js"></script>
-    
+
 </head>
 <body>
 
@@ -17,48 +17,55 @@
       <nav class="main-nav">
         <a href="index.html">Inicio</a>
         <a href="Historia.html">Historia</a>
-        <a href="Contacto">Inscripciones</a>
+        <a href="Contacto">Inscripcion</a>
         </nav>
       </div>
     </header>
 
-    <main class="container articulo-page">
-        <h2>Formulario de Inscripcione</h2>
+    <main>
+      <section class="formulario">
+        <h2>Formulario de Inscripcion</h2>
         <p>Complete los datos del solicitante</p>
 
-    <form id="contactForm" novalidate>
-      <div class="form-row">
-        <label for="name">Nombre y apellido</label>
-        <input type="text" id="name" name="name" maxlength="60" required>
-        </div>
+    <form id="formContacto" >
 
-        <div class="form-row">
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" maxlength="80" required>
-        </div>
+    <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" required>
 
-        <div class="form-row">
-        <label for="phone">Telefono</label>
-        <input type="tel" id="phone" name="phone" maxlength="20" required>
-        </div>
+            <label for="apellido">Apellido:</label>
+            <input type="text" id="apellido" required>
 
-        <div class="form-row">
-        <label for="message">Mensaje</label>
-        <textarea id="message" name="message" maxlength="500" rows="5"></textarea>
-        </div>
+            <label for="fecha">Fecha de Nacimiento:</label>
+            <input type="date" id="fecha" required>
 
-        <div id="formErrors" class="form-errors" aria-live="polite"></div>
-        <button type="submit" class="btn">Enviar</button>   
-    </form>
+            <label for="edad">Edad:</label>
+            <input type="number" id="edad" min="18" max="65" required>
 
-    <section id="submittedData" class="submitted-data" aria-live="polite"></section>
-    </main>
+            <label for="domicilio">Domicilio:</label>
+            <input type="text" id="domicilio" required>
+
+            <label for="dni">DNI:</label>
+            <input type="text" id="dni" pattern="[0-9]{7,8}" required>
+
+            <label for="telefono">Teléfono:</label>
+            <input type="tel" id="telefono" pattern="[0-9]{10}" required>
+
+            <label for="email">Correo Electrónico:</label>
+            <input type="email" id="email" required>
+
+            <button type="submit">Enviar inscripción</button>
+          </form>
+
+          <div id="resultado"></div>
+        </section>
+      </main> 
+
     <footer class="site-footer">
         <div class="container">
           <p>© 2025 Mi Sitio — Hecho por Fede y Emi</p>
         </div>
       </footer>
-      
+
 </body>
 </html>
 
