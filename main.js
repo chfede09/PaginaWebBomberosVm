@@ -1,9 +1,9 @@
 document.addEventListener('DOMContentLoaded', function () {
 
   const images = [
-    'Imagenes/bombero-1.jpg',
-    'Imagenes/bombero-2.jpg',
-    'Imagenes/bombero-3.jpg',
+    'Imagenes/Forestal.jpg',
+    'Imagenes/inc.jpg',
+    'Imagenes/casco.jpg',
     
   ];
 
