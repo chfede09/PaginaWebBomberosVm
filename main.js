@@ -17,8 +17,9 @@ document.addEventListener('DOMContentLoaded', function () {
   
   let touchStartX = 0;
   let touchEndX = 0;
+
   
-if (carouselImage && indicatorsContainer) {
+if (carouselFrame && carouselImage)  {
 
     images.forEach((_, idx) => {
       const b = document.createElement('button');
@@ -89,17 +90,20 @@ if (carouselImage && indicatorsContainer) {
   }
 
 
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowLeft') {
-      goToIndex(currentIndex - 1); resetAutoRotate();
-    } else if (e.key === 'ArrowRight') {
-      goToIndex(currentIndex + 1); resetAutoRotate();
-    }
-  });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') {
+        goToIndex(currentIndex - 1);
+        resetAutoRotate();
+      } else if (e.key === 'ArrowRight') {
+        goToIndex(currentIndex + 1);
+        resetAutoRotate();
+      }
+    });
 
 
   showImage(0);
   autoRotate();
+}
 
 
 /*Validar formulario */
@@ -125,7 +129,7 @@ if (carouselImage && indicatorsContainer) {
       const errors = [];
 
       
-       if (!name) errors.push('El nombre es obligatorio.');
+      if (!name) errors.push('El nombre es obligatorio.');
       else if (name.length > 60) errors.push('El nombre no puede superar 60 caracteres.');
 
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -175,6 +179,5 @@ if (carouselImage && indicatorsContainer) {
         .replaceAll('"', '&quot;')
         .replaceAll("'", '&#039;');
     }
-  
-
-
+  }
+    });
