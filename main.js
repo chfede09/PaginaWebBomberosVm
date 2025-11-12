@@ -18,18 +18,18 @@ document.addEventListener('DOMContentLoaded', function () {
   let touchStartX = 0;
   let touchEndX = 0;
   
+if (carouselImage && indicatorsContainer) {
 
-  
     images.forEach((_, idx) => {
-    const b = document.createElement('button');
-    b.dataset.index = idx;
-    if (idx === 0) b.classList.add('active');
-    b.addEventListener('click', () => {
-      goToIndex(idx);
-      resetAutoRotate();
+      const b = document.createElement('button');
+      b.dataset.index = idx;
+      if (idx === 0) b.classList.add('active');
+      b.addEventListener('click', () => {
+        goToIndex(idx);
+        resetAutoRotate();
+      });
+      indicatorsContainer.appendChild(b);
     });
-    indicatorsContainer.appendChild(b);
-  });
 
   function updateIndicators() {
     const buttons = indicatorsContainer.querySelectorAll('button');
@@ -39,7 +39,6 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function showImage(idx) {
-    
     const src = images[idx] || images[0];
     carouselImage.src = src;
     carouselImage.alt = `Imagen ${idx + 1}`;
@@ -62,6 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
       goToIndex(currentIndex + 1);
     }, rotateDelay);
   }
+
   function resetAutoRotate() {
     if (autoRotateInterval) clearInterval(autoRotateInterval);
     autoRotate();
@@ -102,45 +102,45 @@ document.addEventListener('DOMContentLoaded', function () {
   autoRotate();
 
 
-
+/*Validar formulario */
   const contactForm = document.getElementById('contactForm');
   if (contactForm) {
+    console.log("✅ Validación de formulario activa");
+
     const errorsBox = document.getElementById('formErrors');
     const submittedArea = document.getElementById('submittedData');
 
-    contactForm.addEventListener ('submit', function (e) {
-      e.preventDefault();
+    contactForm.addEventListener('submit', function (e) {
+      e.preventDefault(); // evita que se recargue la página
+
       errorsBox.style.display = 'none';
       errorsBox.innerHTML = '';
+      submittedArea.innerHTML = '';
 
       const name = document.getElementById('name').value.trim();
       const email = document.getElementById('email').value.trim();
       const phone = document.getElementById('phone').value.trim();
       const message = document.getElementById('message').value.trim();
 
-      
       const errors = [];
 
       
-      if (!name) errors.push('El nombre es obligatorio.');
+       if (!name) errors.push('El nombre es obligatorio.');
       else if (name.length > 60) errors.push('El nombre no puede superar 60 caracteres.');
 
-      
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!email) errors.push('El email es obligatorio.');
       else if (!emailRegex.test(email)) errors.push('El email no tiene un formato válido.');
       else if (email.length > 80) errors.push('El email no puede superar 80 caracteres.');
 
-      
       const phoneRegex = /^\+?[0-9\s\-()]{7,20}$/;
       if (!phone) errors.push('El teléfono es obligatorio.');
       else if (!phoneRegex.test(phone)) errors.push('El teléfono no tiene un formato válido (solo números, espacios, guiones y opcional "+").');
 
-      
       if (message.length > 500) errors.push('El mensaje no puede superar 500 caracteres.');
 
+      // Mostrar errores o datos enviados
       if (errors.length) {
-        
         errorsBox.style.display = 'block';
         const ul = document.createElement('ul');
         errors.forEach(msg => {
@@ -149,38 +149,24 @@ document.addEventListener('DOMContentLoaded', function () {
           ul.appendChild(li);
         });
         errorsBox.appendChild(ul);
-        
         errorsBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      } else {
-        
-        submittedArea.innerHTML = ''; 
-        const card = document.createElement('div');
-        card.className = 'sent-card';
-        const h = document.createElement('h3');
-        h.textContent = 'Datos enviados';
-        const pName = document.createElement('p');
-        pName.innerHTML = `<strong>Nombre:</strong> ${escapeHtml(name)}`;
-        const pEmail = document.createElement('p');
-        pEmail.innerHTML = `<strong>Email:</strong> ${escapeHtml(email)}`;
-        const pPhone = document.createElement('p');
-        pPhone.innerHTML = `<strong>Teléfono:</strong> ${escapeHtml(phone)}`;
-        const pMsg = document.createElement('p');
-        pMsg.innerHTML = `<strong>Mensaje:</strong> ${escapeHtml(message || '(sin mensaje)')}`;
-        card.appendChild(h);
-        card.appendChild(pName);
-        card.appendChild(pEmail);
-        card.appendChild(pPhone);
-        card.appendChild(pMsg);
-        submittedArea.appendChild(card);
-
-        
-        contactForm.reset();
-        
-        errorsBox.style.display = 'none';
+        return;
       }
+
+      // Mostrar datos enviados
+      const card = document.createElement('div');
+      card.className = 'sent-card';
+      card.innerHTML = `
+        <h3>Datos enviados correctamente </h3>
+        <p><strong>Nombre:</strong> ${escapeHtml(name)}</p>
+        <p><strong>Email:</strong> ${escapeHtml(email)}</p>
+        <p><strong>Teléfono:</strong> ${escapeHtml(phone)}</p>
+        <p><strong>Mensaje:</strong> ${escapeHtml(message || '(sin mensaje)')}</p>
+      `;
+      submittedArea.appendChild(card);
+      contactForm.reset();
     });
 
-    
     function escapeHtml(unsafe) {
       return unsafe
         .replaceAll('&', '&amp;')
@@ -191,4 +177,4 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
-}); 
+});
