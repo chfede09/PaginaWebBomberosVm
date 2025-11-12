@@ -175,6 +175,6 @@ if (carouselImage && indicatorsContainer) {
         .replaceAll('"', '&quot;')
         .replaceAll("'", '&#039;');
     }
-  }
+  
 
-});
+
