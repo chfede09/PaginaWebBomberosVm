@@ -109,8 +109,6 @@ if (carouselFrame && carouselImage)  {
 /*Validar formulario */
   const contactForm = document.getElementById('contactForm');
   if (contactForm) {
-    console.log("✅ Validación de formulario activa");
-
     const errorsBox = document.getElementById('formErrors');
     const submittedArea = document.getElementById('submittedData');
 
